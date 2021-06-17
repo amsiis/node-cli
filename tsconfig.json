@@ -12,6 +12,6 @@
   "include": [
     "src/*",
     "typings/index.d.ts"
-  ],
+, "src/services/generate.ts", "src/services/modules.ts", "src/services/packages.ts"  ],
   "exclude": [ "*.js" ]
 }
