@@ -4,10 +4,14 @@
     "module": "commonjs",
     "esModuleInterop": true,
     "sourceMap": true,
-    "outDir": "./dist"
+    "outDir": "./dist",
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "types": [ "node" ]
   },
   "include": [
-    "src/*"
+    "src/*",
+    "typings/index.d.ts"
   ],
   "exclude": [ "*.js" ]
 }
