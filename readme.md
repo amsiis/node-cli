@@ -1,12 +1,19 @@
-## CLI
-----
+# CLI
 
 #### Installation
-----
-1. npm i
-2. npm run build
-3. npm i -g .
+---
+1. `npm i`
+2. `npm run build`
+3. `npm i -g .`
 
-#### Usage
+#### How to use
 ----
-b-plate
+`b-plate`
+
+
+### DEV ONLY
+----
+
+Repair the project configurations and 
+`npm run repair`
+
