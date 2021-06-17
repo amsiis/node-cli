@@ -12,11 +12,17 @@ export default class Modules {
   get details () {
     return this.moduleInformation
   }
+  
+  get name (): string {
+    console.log(this.moduleInformation)
+    return this.moduleInformation.name || ''
+  }
 
   private versionCheck (val: string): string|boolean {
     if (/^[\d]+\.+[\d]+\.+[\d]+/.test(val)) return true
     return 'Invalid version specification'
   }
+
 
   ask (): Promise<boolean> {
     return new Promise((resolve, reject) => {
@@ -46,7 +52,7 @@ export default class Modules {
         }
       ])
       .then(info => {
-        this.moduleInformation
+        this.moduleInformation = info
         resolve(true)
       })
       .catch(reject)
