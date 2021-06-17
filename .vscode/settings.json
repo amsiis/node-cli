@@ -1,0 +1,16 @@
+{
+  "files.autoSave": "afterDelay",
+  "editor.tabSize": 2,
+  "editor.formatOnPaste": true,
+  "editor.formatOnSave": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll": true
+  },
+  "vetur.format.defaultFormatterOptions": {
+    "prettier": {
+      "singleQuote": true
+    }
+  },
+  "editor.cursorSmoothCaretAnimation": true,
+  "files.insertFinalNewline": true
+}

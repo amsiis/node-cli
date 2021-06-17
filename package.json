@@ -1,0 +1,21 @@
+{
+  "name": "b-plate",
+  "version": "0.0.1",
+  "description": "Boiler plate cli for School Transportation System - NodeJS",
+  "main": "./dist/index.js",
+  "bin": {
+    "b-plate": "./dist/index.js"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc -p /Users/mac/Desktop/pacakage_node/tsconfig.json"
+  },
+  "author": "Adarsh Mohan S <adarsh.mohan@innoventintegrated.com>",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/yargs": "^17.0.0",
+    "boxen": "^5.0.1",
+    "chalk": "^4.1.1",
+    "yargs": "^17.0.1"
+  }
+}
