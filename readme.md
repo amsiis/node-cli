@@ -8,7 +8,7 @@
 
 #### How to use
 ----
-`b-plate`
+`b-plate -d <path/to/folder>`
 
 
 ### DEV ONLY
