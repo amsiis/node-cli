@@ -17,13 +17,13 @@ export default class Generate {
   }
 
   packageJson () {
-    const dependancies = {}
+    const dependencies = {}
     this.packages.details.map(m => {
-      dependancies[m.name] = m.path
+      dependencies[m.name] = m.path
     })
     return {
       ...this.modules.details,
-      dependancies
+      dependencies
     }
   }
 
