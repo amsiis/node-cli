@@ -1,13 +1,19 @@
 import chalk from 'chalk'
 import boxen from 'boxen'
 
+export enum MessageType {
+  SUCCESS = 'success',
+  ERROR = 'error',
+  INFO = 'info'
+}
+
 export default class Message {
 
   private status: boolean = false
-  private type: 'success'|'error'|'info' = 'error'
+  private type: MessageType = MessageType.ERROR
   private message: string = ''
 
-  constructor (type?: 'success'|'error'|'info', message?: string) {
+  constructor (type?: MessageType, message?: string) {
     this.type = type || this.type
     this.message = message || this.message
     this.correctStatus()
@@ -23,16 +29,16 @@ export default class Message {
     return this
   }
 
-  setType (type: 'success'|'error'|'info'): this {
+  setType (type: MessageType): this {
     this.type = type
     return this
   }
 
   correctStatus (): this {
     switch (this.type) {
-      case 'error': return this.setStatus(false)
-      case 'info': return this.setStatus(true)
-      case 'success': return this.setStatus(true)
+      case MessageType.ERROR: return this.setStatus(false)
+      case MessageType.INFO: return this.setStatus(true)
+      case MessageType.SUCCESS: return this.setStatus(true)
     }
   }
 
@@ -40,13 +46,13 @@ export default class Message {
     let message: string = chalk.white.bold(this.message)
     if (! boxened) {
       switch (this.type) {
-        case 'success':
+        case MessageType.SUCCESS:
           message = chalk.green.bold(this.message)
           break
-        case 'error':
+        case MessageType.ERROR:
           message = chalk.red.bold(this.message)
           break
-        case 'info':
+        case MessageType.INFO:
           message = chalk.white.bold(this.message)
           break
       }
@@ -57,13 +63,13 @@ export default class Message {
       margin: 1
     }
     switch (this.type) {
-      case 'success':
+      case MessageType.SUCCESS:
         op.borderColor = 'green'
         break
-      case 'error':
+      case MessageType.ERROR:
         op.borderColor = 'red'
         break
-      case 'info':
+      case MessageType.INFO:
         op.borderColor = 'white'
         break
     }

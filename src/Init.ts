@@ -6,7 +6,7 @@ import Packages from './services/packages'
 import Modules from './services/modules'
 import Generate from './services/generate'
 import Features from './services/features'
-import Message from './helpers/message'
+import Message, { MessageType } from './helpers/message'
 import PackageGenerator from './generator/package'
 
 @autoInjectable()
@@ -24,7 +24,7 @@ export default class Init {
   }
 
   async start () {
-    console.log(new Message('info', 'Welcome to the CLI').toMessage())
+    console.log(new Message(MessageType.INFO, 'Welcome to the CLI').toMessage())
     this.options = yargs
       .usage('Usage: -d <path/to/project/directory>')
       .option('d', { alias: 'dir', describe: 'Directory to which the project needs to be created', type: 'string', demandOption: true })
@@ -33,18 +33,18 @@ export default class Init {
       await this.modules.ask()
       await this.packages.list()
       await this.features.list()
-      console.log(new Message('info', 'Generating project').toMessage(false))
+      console.log(new Message(MessageType.INFO, 'Generating project').toMessage(false))
       await this.createProject()
       // generate the package.json
       new PackageGenerator()
         .setDir(`${this.options.dir}/${this.modules.name}/`)
         .start()
 
-      console.log(new Message('success', 'Project is ready').toMessage(false))
+      console.log(new Message(MessageType.SUCCESS, 'Project is ready').toMessage(false))
       // modifying the project
-      console.log(new Message('info', 'Thank you for using the CLI').toMessage())
+      console.log(new Message(MessageType.INFO, 'Thank you for using the CLI').toMessage())
     } catch (e) {
-      console.log(new Message('error', e ? 'Something wrong happened' : 'Cancelled by user').toMessage(false))
+      console.log(new Message(MessageType.ERROR, e ? 'Something wrong happened' : 'Cancelled by user').toMessage(false))
       console.error(e)
     }
   }
